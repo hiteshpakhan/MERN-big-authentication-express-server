@@ -60,8 +60,7 @@ router.post("/signin", async (req, res) =>{
 
             // generating cookie
             res.cookie("jwttoken", token, {
-                expires: new Date(Date.now() + 25892000000),
-                httpOnly: true
+                expires: new Date(Date.now() + 25892000000)
             })
 
             if(!isMatch){
