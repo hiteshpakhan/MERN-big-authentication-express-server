@@ -1,7 +1,9 @@
-require("dotenv").config();
 const express = require('express');
+const cors = require("cors");
 const connectDb = require("./db/dbConnections");
 const cookieParser = require("cookie-parser");
+
+require("dotenv").config();
 
 const app = express()
 app.use(cookieParser());
@@ -16,6 +18,8 @@ connectDb();
 
 //here we are creating the middleware that can help us communicate in json format
 app.use(express.json());
+
+app.use(cors());
 
 //using api from another file this is also an middware
 app.use(require("./router/auth"));
